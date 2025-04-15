@@ -97,7 +97,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
 
     // Yıl doldurma
     const yearSelect = document.getElementById("yil");
-    for (let y = currentYear - 5; y <= currentYear; y++) {
+    for (let y = currentYear; y >= currentYear-5; y--) {
       const option = document.createElement("option");
       option.value = y;
       option.text = y;
