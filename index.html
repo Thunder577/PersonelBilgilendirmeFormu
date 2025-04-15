@@ -70,7 +70,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     <option value="">Yıl Seçiniz</option>
     <script>
       const now = new Date().getFullYear();
-      for (let y = now; y >= 2000; y--) {
+      for (let y = 2000; y <= now; y++) {
         document.write(`<option value="${y}">${y}</option>`);
       }
     </script>
