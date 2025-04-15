@@ -68,12 +68,6 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   <label for="yil">Yıl</label>
   <select id="yil" name="yil">
     <option value="">Yıl Seçiniz</option>
-    <script>
-      const now = new Date().getFullYear();
-      for (let y = now; y >= now-5; y--) {
-        document.write(`<option value="${y}">${y}</option>`);
-      }
-    </script>
   </select>
 
   <label for="ay">Ay</label>
