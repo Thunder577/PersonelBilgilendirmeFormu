@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr">
-    <select id="yil" name="yil"></select>
-<select id="ay" name="ay"></select>
-<head>
+
+    <head>
   <meta charset="UTF-8">
   <title>Aylık Personel Bilgilendirme Formu</title>
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -67,7 +66,7 @@ Ada/Parsel/A,B,...: Ada parseldeki, İş Başlığı A veya B veya ... ile başl
 Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   
   <label for="yil">Yıl</label>
-  <select id="yil">
+  <select id="yil" name="yil">
     <option value="">Yıl Seçiniz</option>
     <script>
       const now = new Date().getFullYear();
@@ -78,7 +77,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   </select>
 
   <label for="ay">Ay</label>
-  <select id="ay">
+  <select id="ay" name="ay"></select>
     <option value="">Ay Seçiniz</option>
     <option value="01">Ocak</option>
     <option value="02">Şubat</option>
