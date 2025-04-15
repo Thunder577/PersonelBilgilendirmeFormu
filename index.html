@@ -71,7 +71,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   </select>
 
   <label for="ay">Ay</label>
-  <select id="ay" name="ay" ></select>
+  <select id="ay" name="ay" multiple></select>
 
   <div class="btn-group">
     <button class="btn-cancel" onclick="cancelForm()">Vazgeç</button>
@@ -124,7 +124,9 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     const yil = document.getElementById("yil").value;
     const ay = document.getElementById("ay").value;
 
-    if (!yibf || !yil || !ay) {
+    const selectedMonths = Array.from(ay.selectedOptions).map(option => option.value);
+      
+    if (!yibf || !yil || selectedMonths.length === 0) {
       alert("Lütfen tüm alanları doldurunuz.");
       return;
     }
@@ -132,7 +134,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     const veri = {
       yibf: yibf,
       yil: yil,
-      ay: ay
+      ay: selectedMonths
     };
 
     tg.sendData(JSON.stringify(veri));
