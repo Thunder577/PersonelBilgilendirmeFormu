@@ -122,7 +122,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   function submitForm() {
     const yibf = document.getElementById("yibf").value;
     const yil = document.getElementById("yil").value;
-    const aylar = document.getElementById("ay").value;
+    const aylar = document.getElementById("ay");
 
     const selectedMonths = Array.from(aylar.selectedOptions).map(option => option.value);
       
