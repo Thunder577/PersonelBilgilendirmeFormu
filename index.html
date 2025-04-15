@@ -97,33 +97,69 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     <button class="btn-submit" onclick="submitForm()">Formu Hazırla</button>
   </div>
 
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.expand();
+  <select id="yil" name="yil"></select>
+<select id="ay" name="ay"></select>
+  
+ <script>
+  const tg = window.Telegram.WebApp;
+  tg.expand();
 
-    function cancelForm() {
-      tg.close();
+  window.onload = function () {
+    // Bugünün tarihi
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth(); // 0 = Ocak, 11 = Aralık
+
+    // Yıl doldurma
+    const yearSelect = document.getElementById("yil");
+    for (let y = currentYear - 5; y <= currentYear + 5; y++) {
+      const option = document.createElement("option");
+      option.value = y;
+      option.text = y;
+      if (y === currentYear) option.selected = true;
+      yearSelect.appendChild(option);
     }
 
-    function submitForm() {
-      const yibf = document.getElementById("yibf").value;
-      const yil = document.getElementById("yil").value;
-      const ay = document.getElementById("ay").value;
+    // Ay doldurma
+    const monthNames = [
+      "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+      "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    ];
 
-      if (!yibf || !yil || !ay) {
-        alert("Lütfen tüm alanları doldurunuz.");
-        return;
-      }
+    const monthSelect = document.getElementById("ay");
+    monthNames.forEach((month, index) => {
+      const option = document.createElement("option");
+      option.value = month;
+      option.text = month;
+      if (index === currentMonth) option.selected = true;
+      monthSelect.appendChild(option);
+    });
+  };
 
-      const veri = {
-        yibf: yibf,
-        yil: yil,
-        ay: ay
-      };
+  function cancelForm() {
+    tg.close();
+  }
 
-      tg.sendData(JSON.stringify(veri));
-      tg.close();
+  function submitForm() {
+    const yibf = document.getElementById("yibf").value;
+    const yil = document.getElementById("yil").value;
+    const ay = document.getElementById("ay").value;
+
+    if (!yibf || !yil || !ay) {
+      alert("Lütfen tüm alanları doldurunuz.");
+      return;
     }
-  </script>
+
+    const veri = {
+      yibf: yibf,
+      yil: yil,
+      ay: ay
+    };
+
+    tg.sendData(JSON.stringify(veri));
+    tg.close();
+  }
+</script>
+
 </body>
 </html>
