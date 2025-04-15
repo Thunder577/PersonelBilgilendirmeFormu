@@ -122,9 +122,9 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   function submitForm() {
     const yibf = document.getElementById("yibf").value;
     const yil = document.getElementById("yil").value;
-    const ay = document.getElementById("ay").value;
+    const aylar = document.getElementById("ay").value;
 
-    const selectedMonths = Array.from(ay.selectedOptions).map(option => option.value);
+    const selectedMonths = Array.from(aylar.selectedOptions).map(option => option.value);
       
     if (!yibf || !yil || selectedMonths.length === 0) {
       alert("Lütfen tüm alanları doldurunuz.");
