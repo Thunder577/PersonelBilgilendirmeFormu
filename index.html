@@ -111,11 +111,11 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
 
     // Yıl doldurma
     const yearSelect = document.getElementById("yil");
-    for (let y = currentYear - 5; y <= currentYear + 5; y++) {
+    for (let y = currentYear - 5; y <= currentYear; y++) {
       const option = document.createElement("option");
       option.value = y;
       option.text = y;
-      if (y === currentYear) option.selected = true;
+      if (y == currentYear) option.selected = true;
       yearSelect.appendChild(option);
     }
 
@@ -130,7 +130,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
       const option = document.createElement("option");
       option.value = month;
       option.text = month;
-      if (index === currentMonth) option.selected = true;
+      if (index == currentMonth) option.selected = true;
       monthSelect.appendChild(option);
     });
   };
