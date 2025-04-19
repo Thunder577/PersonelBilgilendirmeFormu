@@ -31,12 +31,6 @@
       box-sizing: border-box;
     }
 
-    <label for="format">Evrak Formatı</label>
-  <select id="format">
-    <option value="pdf">pdf</option>
-    <option value="docx">word</option>
-  </select>
-
     .btn-group {
       display: flex;
       justify-content: space-between;
@@ -79,6 +73,12 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
   <label for="ay">Ay</label>
   <select id="ay" name="ay" multiple></select>
 
+  <label for="format">Evrak Formatı</label>
+  <select id="format">
+    <option value="pdf">pdf</option>
+    <option value="docx">word</option>
+  </select>
+    
   <div class="btn-group">
     <button class="btn-cancel" onclick="cancelForm()">Vazgeç</button>
     <button class="btn-submit" onclick="submitForm()">Formu Hazırla</button>
@@ -129,6 +129,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     const yibf = document.getElementById("yibf").value;
     const yil = document.getElementById("yil").value;
     const aylar = document.getElementById("ay");
+    const format = document.getElementById("format").value;
 
     const selectedMonths = Array.from(aylar.selectedOptions).map(option => option.value);
       
@@ -140,6 +141,7 @@ Ada/Parsel/*: Ada parseldeki bütün YİBFler ">
     const veri = {
       yibf: yibf,
       yil: yil,
+      format: format,
       ay: selectedMonths
     };
 
